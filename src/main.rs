@@ -37,13 +37,14 @@ fn read_data(file_name: &str) -> io::Result<String> {
 
 mod day1;
 mod day2;
+mod day3;
 
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let run_days =
         day_run_vec![
-            day1, day2
+            day1, day2, day3
         ];
 
     let args : Vec<String> = env::args().collect();
@@ -107,6 +108,11 @@ mod tests {
         1 3 2 4 5\n\
         8 6 4 4 1\n\
         1 3 6 7 9", 2, 4
+    }
+
+    test_day!{ day3, day3_test1, day3_test2,
+        "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))", 161,
+        "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))", 48
     }
 
 }
